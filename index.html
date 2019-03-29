@@ -1,0 +1,211 @@
+<HTML>
+
+<HEAD>
+    <script src="javas.js"></script>
+    <TITLE>Form Example</TITLE>
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="style.min.css" />
+    <link rel="stylesheet" type="text/css" href="bgu.min.css" />
+    <link rel="stylesheet" type="text/css" href="BGUStyle.min.css" />
+    <style>
+        tr.spaceUnder>td {
+            padding-bottom: 2em;
+        }
+
+        select {
+            width: 75%;
+        }
+
+        option {
+            width: 75%;
+        }
+
+        label{
+            text-decoration: underline;
+            text-decoration-color: orangered;
+            font-size: 115%;
+        }
+
+        input[type=button],input[type=submit],input[type=reset] {
+            text-decoration: underline;
+            text-decoration-color: orangered;
+            text-decoration-style: solid;
+            
+        }
+        input[type=submit],input[type=reset] {
+            font-weight: bolder;
+        }
+        input[type=button]:hover,input[type=submit]:hover,input[type=reset]:hover {
+            filter: brightness(60%);
+        }
+
+        input {
+            width: 75%;
+
+            /* float: none;
+            display: inline-block;
+            vertical-align: middle; */
+        }
+
+        table {
+            padding: 12px;
+            border-spacing: 12px;
+            border-collapse: separate;
+        }
+
+        th {
+            margin: 6px
+        }
+
+        td {
+            margin: 6px
+        }
+    </style>
+
+    <!-- <script>
+        function meonot_selection() {
+            var a_s = document.getElementById("apartment_select");
+            a_s.innerHTML = "";
+            if (document.getElementById("meonot_select").value == "meonot g") {
+                var option1 = document.createElement("option");
+                option1.text ="GIMEL_WEST"
+                a_s.add(option1);
+                var option2 = document.createElement("option");
+                option2.text = "GIMEL_EAST";
+                var option3 = document.createElement("option");
+                option3.text = 
+            }
+        }
+    </script> -->
+</HEAD>
+
+<BODY>
+    <center>
+        <h1 style="color:orange;">Dormitory Form</H2> <img src="logotextfull.png"/>
+
+        <P style="text-decoration: underline;
+        text-decoration-color: blue;">Please fill out this form to send request for dormitory</P>
+    </center>
+    <FORM METHOD="POST" ACTION="mailto:you@yourwebsite.com">
+
+        <table id="form_table" align="center">
+
+            <tr>
+                <P>
+                    <td>
+                        <label>ID: </label>
+                    </td>
+                    <td>
+                        <INPUT NAME="id" TYPE="text" pattern="[0-9]{9}" placeholder="123456789" SIZE="25" required>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <P>
+                    <td><label>Gender:</label></td>
+                    <td>
+                        <select name="gender" required>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <P>
+                    <td><label>Meonot:</label></td>
+                    <td>
+                        <select required>
+                            <option disabled selected value> -- select an option -- </option>
+                            <optgroup label="Meonot GIMEL">
+                                <option value="GIMEL_WEST">GIMEL WEST</option>
+                                <option value="GIMEL_EAST">GIMEL EAST</option>
+                                <option value="GIMEL_DISABLED_ACCESS">GIMEL DISABLED ACCESS</option>
+                            </optgroup>
+                            <optgroup label="Meonot DALED">
+                                <option value="DALED_WEST">DALED WEST</option>
+                                <option value="DALED_EAST">DALED EAST</option>
+                                <option value="DALED_INTERNATIONAL">DALED INTERNATIONAL</option>
+                                <option value="DALED_TROMIM_MALES">DALED TROMIM</option>
+                                <!-- DALED_TROMIM_MALES
+                    DALED_TROMIM_FEMALES -->
+                                <option value="DALED_DISABLED_ACCESS">DALED DISABLED ACCESS</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <P>
+                    <td><label>Smoke:</label></td>
+                    <td><select name="smoke" required>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <P>
+                    <td><label>Religion:</label></td>
+                    <td>
+                        <select name="religion" required>
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="jewish">jewish</option>
+                            <option value="muslim">muslim</option>
+                            <option value="no">no</option>
+                        </select>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <td><label>people who you want to be with:</label>
+                </td>
+            </tr>
+            <tr>
+                <P>
+                    <td colspan="2">
+                        <div id="p_for_id">
+                            <p id="wanted"></p>
+                            <input type="button" value="add ID" onclick="add_ID(event)"><br>
+                        </div>
+                    </td>
+                </P>
+            </tr>
+            <tr>
+                <td><label>people who you do not want to be with:</label></td>
+            </tr>
+            <tr>
+                <p>
+                    <td colspan="2">
+                        <div id="p_for_id">
+                            <p id="nwanted"></p>
+                            <input type="button" value="add ID" onclick="add_ID(event)"><br>
+                        </div>
+                    </td>
+                </p>
+            </tr>
+
+            <!-- <select>
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select> -->
+            
+            <tr class="spaceUnder">
+                <td colspan="2"></td>
+            </tr>
+
+            <tr>
+                <td><INPUT TYPE="submit" VALUE="Submit Your Entries"></td>
+                <td><INPUT TYPE="reset" VALUE="Clear Your Entries"></td>
+            </tr>
+        </table>
+    </FORM>
+
+</BODY>
+
+</HTML>
